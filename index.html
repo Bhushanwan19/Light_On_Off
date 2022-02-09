@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulbproject</title>
+    <style>
+      button {
+        padding: 10px;
+        /* color: hsl(328, 92%, 63%); */
+      }
+      #change {
+        margin-left: 1100px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>LIGHT ON-OFF CONTROL</h1>
+      <button id="on">TURN ON</button>
+      <button id="off">TURN OFF</button>
+
+      <div>
+        <img
+          id="bulb"
+          src="./assets/images/lightoff.jpg"
+          width="250px"
+          alt="light"
+        />
+      </div>
+      <button id="onOff">ON</button><br />
+      <button id="change">Heading</button>
+    </center>
+
+    <script>
+      const button = document.getElementById("on");
+      const btn = document.getElementById("off");
+      const btn2 = document.getElementById("onOff");
+      const btnchange = document.getElementById("change");
+      const imgObj = document.getElementById("bulb");
+
+      button.addEventListener("click", handleOn);
+      btn.addEventListener("click", handleoff);
+      btn2.addEventListener("click", handleOnOff);
+      btnchange.addEventListener("click", handlechange);
+
+      function handleOn() {
+        imgObj.setAttribute("src", "./assets/images/lighton.jpg");
+      }
+
+      function handleoff() {
+        imgObj.setAttribute("src", "./assets/images/lightoff.jpg");
+      }
+
+      function handleOnOff() {
+        // let imgObj = document.getElementById("bulb");
+        let srcObj = imgObj.getAttribute("src");
+        console.log(srcObj);
+
+        let buttonObj = document.getElementById("onOff");
+        let buttonText = buttonObj.innerHTML;
+        console.log(buttonText);
+
+        if (srcObj === "./assets/images/lightoff.jpg") {
+          handleOn();
+          buttonObj.innerHTML = "OFF";
+        } else {
+          handleoff();
+          buttonObj.innerHTML = "ON";
+        }
+      }
+
+      function handlechange() {
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = "<h1>Simple Light ON-OFF Project";
+        h1.style.padding = "0px";
+        h1.style.background = "red";
+        h1.style.color = "black";
+        btnchange.style.background = "hsl(328, 92%, 63%)";
+      }
+
+      let h1 = document.querySelector("h1");
+      h1.style.padding = "10px";
+      h1.style.color = "white";
+      h1.style.background = "darkmagenta";
+      h1.style.marginTop = "25px";
+
+      // const turnOff = () => {
+      //   let imgObj = document.getElementById("bulb");
+      //   imgObj.setAttribute("src", "./assets/images/lightoff.jpg");
+      // };
+
+      // const onOff = function () {
+      //   let imgObj = document.getElementById("bulb");
+      //   let srcObj = imgObj.getAttribute("src");
+      //   console.log(srcObj);
+
+      //   let buttonObj = document.getElementById("onOff");
+      //   let buttonText = buttonObj.innerHTML;
+      //   console.log(buttonText);
+
+      //   if (srcObj === "./assets/images/lightoff.jpg") {
+      //     turnON();
+      //     buttonObj.innerHTML = "OFF";
+      //   } else {
+      //     turnOff();
+      //     buttonObj.innerHTML = "ON";
+      //   }
+      // };
+    </script>
+  </body>
+</html>
